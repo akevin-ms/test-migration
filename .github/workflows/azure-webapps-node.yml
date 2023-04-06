@@ -22,8 +22,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-env:
-  AZURE_WEBAPP_NAME: migration-tryout    # set this to your application's name
+env:    
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '18.x'                # set this to the node version to use
 
@@ -60,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Development'
+      name: 'Dev'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
