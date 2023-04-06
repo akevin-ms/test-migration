@@ -19,7 +19,7 @@
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "stg" ]
   workflow_dispatch:
 
 env:    
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'dev'
+      name: 'stg'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
